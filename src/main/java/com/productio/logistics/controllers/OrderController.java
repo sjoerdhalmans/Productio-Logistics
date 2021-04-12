@@ -3,6 +3,7 @@ package com.productio.logistics.controllers;
 import com.productio.logistics.logic.OrderCollectionLogic;
 import com.productio.logistics.models.Order;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.lettuce.LettuceConnection;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,5 +18,25 @@ public class OrderController {
     @GetMapping(value = "/getAllOrders")
     public List<Order> getAll() {
         return orderCollectionLogic.getAll();
+    }
+
+    @PostMapping(value ="/createOrder")
+    public void create(@RequestBody Order order) {
+        orderCollectionLogic.createOrder(order);
+    }
+
+    @PutMapping(value ="/updateOrder")
+    public void update(@RequestBody Order order) {
+        orderCollectionLogic.updateOrder(order);
+    }
+
+    @DeleteMapping(value ="/deleteOrder/{orderid}")
+    public void delete(@PathVariable(value="orderid") long id) {
+        orderCollectionLogic.deleteOrder(id);
+    }
+
+    @PostMapping(value ="/archiveOrder")
+    public void archive(@RequestBody Order order) {
+        orderCollectionLogic.archiveOrder(order);
     }
 }
