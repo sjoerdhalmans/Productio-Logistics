@@ -11,12 +11,17 @@ import javax.validation.constraints.NotBlank;
 @EntityListeners(AuditingEntityListener.class)
 public class Order {
 
-    public Order(long id, @NotBlank Timestamp created, @NotBlank String materialName, @NotBlank long quantity, @NotBlank String unit) {
+    public Order(long id, @NotBlank Timestamp created, @NotBlank String materialName, @NotBlank long quantity) {
         this.id = id;
         this.created = created;
         this.materialName = materialName;
         this.quantity = quantity;
-        this.unit = unit;
+    }
+
+    public Order(Timestamp created,  String materialName,  long quantity) {
+        this.created = created;
+        this.materialName = materialName;
+        this.quantity = quantity;
     }
 
     public Order() {
@@ -36,9 +41,6 @@ public class Order {
 
     @NotBlank
     private long quantity;
-
-    @NotBlank
-    private String unit;
 
     public long getId() {
         return id;
@@ -66,13 +68,5 @@ public class Order {
 
     public void setQuantity(long quantity) {
         this.quantity = quantity;
-    }
-
-    public String getUnit() {
-        return unit;
-    }
-
-    public void setUnit(String unit) {
-        this.unit = unit;
     }
 }

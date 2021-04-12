@@ -1,44 +1,27 @@
 package com.productio.logistics.models;
 
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import javax.persistence.*;
+import javax.persistence.Column;
 import javax.validation.constraints.NotBlank;
 import java.sql.Timestamp;
 
-@Entity
-@Table(name = "receipts")
-@EntityListeners(AuditingEntityListener.class)
-public class OrderReceipt {
-
-    public OrderReceipt(long price, String currency, @NotBlank Timestamp finished, @NotBlank String materialName, @NotBlank long quantity) {
+public class IncomingReceipt {
+    public IncomingReceipt(long price, String currency, String materialName, long quantity) {
         this.price = price;
         this.currency = currency;
-        this.finished = finished;
         this.materialName = materialName;
         this.quantity = quantity;
     }
 
-    public OrderReceipt() {
+    public IncomingReceipt() {
+
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true, updatable = false)
-    private long id;
-
-    @Column(name = "price")
     private long price;
 
     private String currency;
 
-    @NotBlank
-    private Timestamp finished;
-
-    @NotBlank
     private String materialName;
 
-    @NotBlank
     private long quantity;
 
     public long getPrice() {
@@ -55,18 +38,6 @@ public class OrderReceipt {
 
     public void setCurrency(String currency) {
         this.currency = currency;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public Timestamp getFinished() {
-        return finished;
-    }
-
-    public void setFinished(Timestamp finished) {
-        this.finished = finished;
     }
 
     public String getMaterialName() {
