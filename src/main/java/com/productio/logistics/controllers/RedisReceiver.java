@@ -17,4 +17,20 @@ public class RedisReceiver {
     public void receiveCountMessage(String message) {
         LOGGER.info("Message Received from count channel: <" + message + ">");
     }
+
+    public void createOrder(String message) {
+        LOGGER.info("Message Received from test0 channel: <" + message + ">");
+    }
+
+    public void updateOrder(String message) {
+        LOGGER.info("Message Received from test1 channel: <" + message + ">");
+    }
+
+    public void deleteOrder(String message) {
+        LOGGER.info("Message Received from test2 channel: <" + message + ">");
+    }
+
+    public void archiveOrder(String message) {
+        LOGGER.info("Message Received from test3 channel: <" + message + ">");
+    }
 }
