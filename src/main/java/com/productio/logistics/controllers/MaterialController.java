@@ -18,6 +18,7 @@ public class MaterialController {
     @Autowired
     MaterialCollectionLogic materialCollectionLogic;
 
+    //these are added straight in the database
     @GetMapping(value = "/getAllMaterials")
     public List<Material> getAll() {
         return materialCollectionLogic.getAll();
