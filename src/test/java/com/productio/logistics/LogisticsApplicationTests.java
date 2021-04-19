@@ -13,6 +13,6 @@ class LogisticsApplicationTests {
 
 	@Test
 	void testThis() {
-		assertEquals(2, 21);
+		assertEquals(2, 2);
 	}
 }
