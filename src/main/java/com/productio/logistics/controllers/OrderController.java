@@ -18,6 +18,11 @@ public class OrderController {
     @Autowired
     OrderCollectionLogic orderCollectionLogic;
 
+    @GetMapping(value = "/ping")
+    public String ping() {
+        return "pong";
+    }
+
     @GetMapping(value = "/getAllReceipts")
     public List<OrderReceipt> getAllReceipts() {
         return orderCollectionLogic.getAllReceipts();
