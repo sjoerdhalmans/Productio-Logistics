@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM hypriot/rpi-java
 
 COPY ./target/logistics-0.0.1-SNAPSHOT.jar /usr/app/
 
