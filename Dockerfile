@@ -1,4 +1,4 @@
-FROM hypriot/rpi-java
+FROM openjdk:11-jdk-alpine
 
 COPY ./target/logistics-0.0.1-SNAPSHOT.jar /usr/app/
 
