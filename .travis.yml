@@ -21,6 +21,7 @@ script:
   - mvn clean verify
 
 after_success:
+  - mvn clean install
   - sudo apt install -y qemu-user-static binfmt-support
   - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
   - docker login -u "$DOCKER_USERNAME" --password "$DOCKER_PASSWORD"
