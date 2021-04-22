@@ -1,7 +1,5 @@
 FROM openjdk:8-jdk-alpine
 VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
-
-EXPOSE 8086
+ADD target/core-0.1.0-RELEASE.jar target/app.jar
+RUN bash -c 'touch target/app.jar'
+ENTRYPOINT ["java","-jar","-Dspring.profiles.active=local","target/app.jar"]
