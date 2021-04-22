@@ -1,8 +1,5 @@
 language: java
 
-java:
-  - 8
-
 sudo: true
 
 before_install:
@@ -21,6 +18,7 @@ before_install:
   - chmod a+x ~/.docker/cli-plugins/docker-buildx
 
 script:
+  - jdk_switcher use oraclejdk8
   - mvn clean verify
 
 after_success:
