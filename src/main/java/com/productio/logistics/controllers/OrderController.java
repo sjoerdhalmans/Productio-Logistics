@@ -43,8 +43,8 @@ public class OrderController {
         orderCollectionLogic.updateOrder(order);
     }
 
-    @DeleteMapping(value ="/deleteOrder/{orderid}")
-    public void delete(@PathVariable(value="orderid") long id) {
+    @DeleteMapping(value ="/deleteOrder")
+    public void delete(@RequestBody Integer id) {
         orderCollectionLogic.deleteOrder(id);
     }
 
