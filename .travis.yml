@@ -7,7 +7,7 @@ sudo: true
 before_install:
   - chmod +x mvnw
   - set -e
-  # Configure environment so changes are picked up when the Docker daemon is restarted after upgrading
+
   - echo '{"experimental":true}' | sudo tee /etc/docker/daemon.json
   - export DOCKER_CLI_EXPERIMENTAL=enabled
   - sudo rm -rf /var/lib/apt/lists/*
