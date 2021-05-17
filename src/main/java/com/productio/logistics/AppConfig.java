@@ -7,6 +7,5 @@ import org.springframework.data.redis.listener.adapter.MessageListenerAdapter;
 
 @Configuration
 public class AppConfig {
-
-
+    
 }
